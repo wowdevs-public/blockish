@@ -1,0 +1,75 @@
+.wp-block-blockish-container {
+
+    &:not(.has-child-blocks) {
+       > .block-list-appender {
+            min-height: var(--container-min-height, 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &::before {
+                content: '';
+                outline: 1px dashed #d3d3d3;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            .block-editor-button-block-appender {
+                box-shadow: none;
+
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+
+    &.is-selected {
+        &::after {
+            bottom: 0;
+            content: "";
+            left: 0;
+            outline-color: var(--wp-admin-theme-color);
+            outline-offset: calc(((-1*var(--wp-admin-border-width-focus))/var(--wp-block-editor-iframe-zoom-out-scale, 1))*1);
+            outline-style: solid;
+            outline-width: calc((var(--wp-admin-border-width-focus)/var(--wp-block-editor-iframe-zoom-out-scale, 1))*1);
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1;
+        }
+    }
+
+    &:not(.is-selected) {
+        > .block-list-appender:only-child {
+            pointer-events: none;
+           .block-editor-inserter {
+                opacity: 0;
+            }
+        }
+    }
+
+    .blockish-container-placeholder-close {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        cursor: pointer;
+        z-index: 4;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        &:hover, &:focus {
+            color: #1677ff;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+    }
+}
