@@ -1,13 +1,12 @@
 <?php
 /**
  * Plugin Name:       Blockish
- * Plugin URI: https://blockish.pro
  * Description:       A collection of creative Gutenberg blocks to help you build beautiful websites.
  * Requires at least: 6.1
  * Requires PHP:      7.4
- * Version:           1.0.1
- * Author:            wowDevs
- * Author URI:        https://blockish.pro
+ * Version:           1.0.4
+ * Author:            bdkoder
+ * Author URI:        https://github.com/bdkoder
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       blockish
@@ -37,7 +36,7 @@ final class Blockish {
      *
      * @var string
      */
-    const VERSION = '1.0.1';
+    const VERSION = '1.0.4';
 
     /**
      * Holds the instance of this class.
@@ -62,13 +61,6 @@ final class Blockish {
 
         // Initialize plugin hooks.
         add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
-
-        add_action( 'init', function() {
-           if(is_admin()) {
-              new \Blockish\Admin\Admin();
-          }
-        });
-        new \Blockish\Admin\Admin();
     }
 
     /**
@@ -80,7 +72,6 @@ final class Blockish {
         define( 'BLOCKISH_VERSION', self::VERSION );
         define( 'BLOCKISH_NAME', '' );
         define( 'BLOCKISH_URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
-        define( 'BLOCKISH_ASSETS_URL', BLOCKISH_URL . 'assets/' );
         define( 'BLOCKISH_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
         define( 'BLOCKISH_INCLUDES_DIR', BLOCKISH_DIR . 'includes/' );
         define( 'BLOCKISH_STYLES_DIR', BLOCKISH_DIR . 'build/styles/' );
@@ -181,47 +172,3 @@ function blockish() {
     return Blockish::instance();
 }
 blockish();
-
-
-/**
- * SDK Integration
- */
-
-if ( ! function_exists( 'blockish_dci_plugin' ) ) {
-  function blockish_dci_plugin() {
-
-    // Include DCI SDK.
-    require_once dirname( __FILE__ ) . '/dci/start.php';
-    wp_register_style('dci-sdk-blockish', plugins_url('dci/assets/css/dci.css', __FILE__), array(), '1.2.1', 'all');
-    wp_enqueue_style('dci-sdk-blockish');
-
-    dci_dynamic_init( array(
-      'sdk_version'   => '1.2.1',
-      'product_id'    => 5,
-      'plugin_name'   => 'Blockish', // make simple, must not empty
-      'plugin_title'  => 'Love using Blockish? Congrats 🎉  ( Never miss an Important Update )', // You can describe your plugin title here
-      'plugin_icon'   => plugins_url( 'assets/imgs/logo.svg', __FILE__ ), // delete the line if you don't need
-      'api_endpoint'  => 'https://dashboard.wowdevs.com/wp-json/dci/v1/data-insights',
-      'slug'          => 'no-need', // folder-name or write 'no-need' if you don't want to use
-      'core_file'     => false,
-      'plugin_deactivate_id' => false,
-      'menu'          => array(
-        'slug' => 'blockish',
-      ),
-      'public_key'    => 'pk_AyXCKb51WP7urdbX5vdqe2ScQewFI3Bn',
-      'is_premium'    => false,
-      //'custom_data' => array(
-        //'test' => 'value',
-      //),
-      'popup_notice'  => false,
-      'deactivate_feedback' => true,
-      //'delay_time'    => array(
-			//  'time' => 3 * DAY_IN_SECONDS,
-			//),
-      'text_domain'  => 'blockish',
-      'plugin_msg'   => '<p>Be Top-contributor by sharing non-sensitive plugin data and create an impact to the global WordPress community today! You can receive valuable emails periodically.</p>',
-    ) );
-
-  }
-  add_action( 'admin_init', 'blockish_dci_plugin' );
-}

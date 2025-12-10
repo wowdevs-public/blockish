@@ -1,27 +1,17 @@
 === Blockish ===
-Contributors: wowdevs
-Donate link: https://blockish.pro
+Contributors: wowdevs, bdkoder
+Donate link: https://github.com/bdkoder
 Tags: blocks, builder, designs
-Requires at least: 6.1
-Tested up to: 6.7.2
-Requires PHP: 7.4
-Stable tag: 1.0.1
+Tested up to: 6.9
+Stable tag: 1.0.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Blockish is a creative Gutenberg blocks collection with powerful layout builder blocks to design beautiful websites with ease.
+The Blockish plugin is a collection of creative Gutenberg blocks that help you design your website with ease.
 
 == Description ==
 
-Get creative with the Blockish plugin. This comprehensive plugin features a collection of creative Gutenberg blocks, including powerful layout builder blocks that revolutionize how you create website layouts. The layout builder blocks allow you to:
-
-- **Create flexible grid systems** - Build responsive multi-column layouts with drag-and-drop ease
-- **Design complex page structures** - Nest rows and columns to create sophisticated designs
-- **Customize spacing and alignment** - Fine-tune margins, padding, and content positioning
-- **Build responsive layouts** - Ensure your designs look perfect on desktop, tablet, and mobile devices
-- **Control backgrounds and styling** - Add colors, gradients, and background images to sections
-
-Whether you're building landing pages, portfolios, or complex content layouts, the Blockish layout builder blocks provide the flexibility and control you need. The plugin is designed to be lightweight and intuitive, making it perfect for bloggers, designers, developers, and anyone who wants to create beautiful, professionally-structured websites without writing code.
+Get creative with the Blockish plugin. This plugin is a collection of creative Gutenberg blocks that help you design your website with ease. The plugin is designed to be lightweight and easy to use. It is perfect for bloggers, designers, developers, and anyone who wants to create beautiful websites.
 
 == Features ==
 
@@ -53,6 +43,9 @@ Yes, you can use this plugin on your client's website.
 
 You can get support for this plugin by creating a support ticket on the WordPress support forum.
 
+= How can I become a Contributor? =
+If you want to contribute, go to our [Blockish GitHub Repository](https://github.com/wowdevs-public/blockish) and see where you can help.
+
 == External services ==
 
 A JSON Schema for block.json [https://schemas.wp.org/trunk/block.json](https://schemas.wp.org/trunk/block.json) can be used by code editors to provide things like tooltips, autocomplete, and validation while editing block.json.
@@ -71,10 +64,10 @@ A JSON Schema for block.json [https://schemas.wp.org/trunk/block.json](https://s
 
 == Changelog ==
 
-= 1.0.1 [26th July 2025] =
+= 1.0.4 [10th Dec 2025] =
 
 * System Improved
 
-= 1.0.0 [22th March 2025] =
+= 1.0.0 [19th Jan 2025] =
 
 * Initial release
